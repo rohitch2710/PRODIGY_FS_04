@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+* {
+  font-family: "Poppins";
+}
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+  padding: 10px 0;
+  background-color: black;
+  cursor: pointer;
+}

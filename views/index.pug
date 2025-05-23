@@ -1,0 +1,47 @@
+html
+  head
+    title= "Real Time Chat App"
+    link(rel="shortcut icon" href="/icon.svg" type="image/svg")
+    link(rel="stylesheet" href="/styles.css")
+    script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4")
+    script(src="/socket.io/socket.io.js")
+  body(class="bg-[#f5deb3] lg:flex lg:justify-center lg:items-center relative")
+    div(class="alerts hidden w-full h-full z-40 bg-white/20 backdrop-filter-blur(2px) top-0 left-0") 
+    div(class="alerts hidden w-[80%] lg:w-1/4 z-50 bg-red-600 p-4 top-4 left-[10%] lg:left-[37.5%] text-white rounded-md border-black border") 
+      p You are already online please prevent to open multiple tabs
+    div(class="user_status hidden fixed w-full h-full z-40 bg-white/20 backdrop-filter-blur(2px) top-0 left-0") 
+    div(class="user_status hidden fixed w-[80%] lg:w-1/4 z-50 bg-red-600 p-4 top-4 left-[10%] lg:left-[37.5%] text-white rounded-md border-black border") 
+      p Message sending failed user you are messaging is not online
+      img(src="/close.svg",class="h-5 cursor-pointer")
+    div(class="notifications hidden w-full h-full z-20 bg-white/50 backdrop-filter-blur(2px) top-0 left-0") 
+    div(class="notifications hidden w-[90%] lg:w-[40%] z-30 bg-white px-4 pb-4 bottom-0 left-[5%] lg:left-[30%] text-black rounded-t-2xl border-black border overflow-y-auto border-b-0 max-h-[60vh]")
+      h1(class="text-lg text-center border-0 border-b-1 p-4 bg-white sticky top-0 font-bold flex justify-between") Notifications
+        img(class="h-5 notification_btn cursor-pointer",src="/close.svg")
+      div(class="flex flex-col justify-start item-center gap-2 text-base w-full pt-4",id="all-notifications")
+    div(class="h-[100svh] w-screen lg:w-[80%] relative overflow-hidden")
+      div(class="sticky top-0 w-full text-center py-2 text-xl bg-white/50 backdrop-blur-[2px] shadow-sm shadow-black") Enjoy chat with unlimited users
+        div(class="py-0.5 px-2 h-auto w-full flex justify-between items-center")
+          h1(class="text-xl font-medium text-[#f57c50]",id=`${userId}`)= `Hi, ${username}`
+          div
+            p(class="inline-block bg-black text-white p-1 rounded-sm cursor-pointer text-sm mr-2",id="set_chatroom") Public Chatroom
+            a(href="/auth/logout" class="bg-black text-white p-1 rounded-sm cursor-pointer text-sm") Logout
+      div(class='flex flex-col justify-center items-center h-[calc(100vh-4.75rem)] w-full')
+        div(class="h-[90%] w-full overflow-y-auto overflow-x-hidden relative",id="message-box")
+          div(class="sticky top-0 w-full bg-black/50") 
+            img(src="/hamburger.svg" class="h-[50%] top-[25%] left-2 cursor-pointer absolute lg:hidden",id="hamburger")
+            p(class="text-sm text-center py-2 text-white",id="chatting-with") You are in public chat room
+          div(class="flex flex-col justify-start gap-2 p-4",id="all-messages")
+        form(class="h-[10%] w-full bg-white flex items-center",id="message-form")
+          textarea(placeholder="Enter message here",maxlength=1000,class="w-full h-full focus-visible:outline-hidden p-2 resize-none bg-yellow-200 text-sm",name="message",required)
+          input(type="image",src="/send.svg",class="h-full p-1 bg-yellow-200 focus-visible:outline-hidden")
+    div(class="bg-[#f57c50] h-[100svh] w-[80%] lg:w-[20%] overflow-y-auto fixed top-0 lg:relative hidden lg:block",id="sidebar")
+      h1(class="text-lg p-2 text-center w-full font-bold sticky top-0 bg-white flex justify-between item-center") 
+        span Online users
+        div.relative
+          img(class="h-5 notification_btn cursor-pointer",src="/notification.svg")
+          div#notification-present.absolute.h-2.w-2.bg-red-500.rounded-full.right-0.top-0.z-10.animate-pulse.hidden
+        img(src="/hamburger.svg",class="h-5 cursor-pointer lg:hidden",id="hamburger")
+      div(class="flex flex-col justify-center items-start gap-2 w-full p-2",id="online-users")
+    script(src="/app.js")
+
+

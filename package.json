@@ -1,0 +1,39 @@
+{
+  "name": "real-time-chat-app",
+  "version": "1.0.0",
+  "description": "socket.io chatapp websockets",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.0",
+    "pug": "^3.0.3",
+    "socket.io": "^4.8.1"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhammad-Tayyab-Awan/prodigy_fs_04.git"
+  },
+  "keywords": [
+    "socket.io",
+    "chatapp",
+    "websockets"
+  ],
+  "author": "Muhammad-Tayyab-Awan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Muhammad-Tayyab-Awan/prodigy_fs_04/issues"
+  },
+  "homepage": "https://github.com/Muhammad-Tayyab-Awan/prodigy_fs_04#readme"
+}
